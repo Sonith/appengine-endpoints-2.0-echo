@@ -52,12 +52,7 @@ public class Echo {
    * Note that httpMethod is not specified. This will default to a reasonable HTTP method
    * depending on the API method name. In this case, the HTTP method will default to POST.
    */
-  // [START echo_method]
-  @ApiMethod(name = "echo")
-  public Message echo(Message message, @Named("n") @Nullable Integer n) {
-    return doEcho(message, n);
-  }
-  // [END echo_method]
+
 
   @ApiMethod(name = "hi")
   public Message hi() {
@@ -76,29 +71,7 @@ public class Echo {
    * Note that httpMethod is not specified. This will default to a reasonable HTTP method
    * depending on the API method name. In this case, the HTTP method will default to POST.
    */
-  // [START echo_path]
-  @ApiMethod(name = "echo_path_parameter", path = "echo/{n}")
-  public Message echoPathParameter(Message message, @Named("n") int n) {
-    return doEcho(message, n);
-  }
-  // [END echo_path]
 
-  /**
-   * Echoes the received message back. If n is a non-negative integer, the message is copied that
-   * many times in the returned message.
-   *
-   * Note that name is specified and will override the default name of "{class name}.{method
-   * name}". For example, the default is "echo.echo".
-   *
-   * Note that httpMethod is not specified. This will default to a reasonable HTTP method
-   * depending on the API method name. In this case, the HTTP method will default to POST.
-   */
-  // [START echo_api_key]
-  @ApiMethod(name = "echo_api_key", path = "echo_api_key", apiKeyRequired = AnnotationBoolean.TRUE)
-  public Message echoApiKey(Message message, @Named("n") @Nullable Integer n) {
-    return doEcho(message, n);
-  }
-  // [END echo_api_key]
 
   private Message doEcho(Message message, Integer n) {
     if (n != null && n >= 0) {
