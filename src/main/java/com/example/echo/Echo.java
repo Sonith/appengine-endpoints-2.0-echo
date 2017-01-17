@@ -152,21 +152,5 @@ public class Echo {
    * Note that httpMethod is not required here. Without httpMethod, this will default to GET due
    * to the API method name. httpMethod is added here for example purposes.
    */
-  // [START firebase_auth]
-  @ApiMethod(
-      path = "firebase_user",
-      httpMethod = ApiMethod.HttpMethod.GET,
-      authenticators = {EspAuthenticator.class},
-      issuerAudiences = {@ApiIssuerAudience(name = "firebase", audiences = {"YOUR-PROJECT-ID"})}
-      )
-  public Email getUserEmailFirebase(User user) throws UnauthorizedException {
-    if (user == null) {
-      throw new UnauthorizedException("Invalid credentials");
-    }
 
-    Email response = new Email();
-    response.setEmail(user.getEmail());
-    return response;
-  }
-  // [END firebase_auth]
 }

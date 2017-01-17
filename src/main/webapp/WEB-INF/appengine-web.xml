@@ -28,6 +28,7 @@
     </system-properties>
 
    <env-variables>
-        <env-var name="ENDPOINTS_SERVICE_NAME" value="echo-api.endpoints.rentping-demo.appspot.com" />
+        <env-var name="ENDPOINTS_SERVICE_NAME" value="echo-api.endpoints.rentping-demo.cloud.goog" />
+       <env-var name="ENDPOINTS_SERVICE_VERSION" value="2017-01-17r1" />
     </env-variables>
 </appengine-web-app>

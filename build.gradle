@@ -9,9 +9,6 @@ buildscript {
     }
 }
 repositories {
-    maven {
-        url 'https://maven-central.storage.googleapis.com'             // Google's mirror of Maven Central
-    }
     jcenter()
     mavenCentral()
 }
@@ -19,6 +16,7 @@ repositories {
 apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'com.google.cloud.tools.appengine'
+apply plugin: 'idea'
 
 appengine {  // App Engine tasks configuration
     run {
@@ -31,12 +29,14 @@ appengine {  // App Engine tasks configuration
     }
 }
 
+
+
 dependencies {
     providedCompile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
     compile 'com.google.appengine:appengine:+'
     compile 'com.google.endpoints:endpoints-framework:+'
-    compile group: 'com.google.endpoints', name: 'endpoints-management-control-appengine', version: '1.0.0-beta.11'
-    compile group: 'com.google.endpoints', name: 'endpoints-framework-auth', version: '1.0.0-beta.11'
+    compile group: 'com.google.endpoints', name: 'endpoints-management-control-appengine', version: '+'
+    compile group: 'com.google.endpoints', name: 'endpoints-framework-auth', version: '+'
 }
 
 group = 'com.example.appengine'   // Generated output GroupId
