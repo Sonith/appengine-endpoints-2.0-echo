@@ -1,0 +1,232 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "version": "1.0.0",
+  "title": "echo-api.endpoints.rentping-demo.cloud.goog"
+ },
+ "host": "echo-api.endpoints.rentping-demo.cloud.goog",
+ "basePath": "/_ah/api",
+ "schemes": [
+  "https"
+ ],
+ "consumes": [
+  "application/json"
+ ],
+ "produces": [
+  "application/json"
+ ],
+ "paths": {
+  "/echo/v1/echo": {
+   "post": {
+    "operationId": "EchoEcho",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     },
+     {
+      "name": "n",
+      "in": "query",
+      "required": false,
+      "type": "integer",
+      "format": "int32"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     }
+    }
+   }
+  },
+  "/echo/v1/echo/{n}": {
+   "post": {
+    "operationId": "EchoEchoPathParameter",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     },
+     {
+      "name": "n",
+      "in": "path",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     }
+    }
+   }
+  },
+  "/echo/v1/echo_api_key": {
+   "post": {
+    "operationId": "EchoEchoApiKey",
+    "parameters": [
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     },
+     {
+      "name": "n",
+      "in": "query",
+      "required": false,
+      "type": "integer",
+      "format": "int32"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     }
+    },
+    "security": [
+     {
+      "api_key": [ ]
+     }
+    ]
+   }
+  },
+  "/echo/v1/email": {
+   "get": {
+    "operationId": "EchoGetUserEmail",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Email"
+      }
+     }
+    },
+    "security": [
+     {
+      "google_id_token": [ ]
+     },
+     {
+      "google_id_token_https": [ ]
+     }
+    ],
+    "x-security": [
+     {
+      "google_id_token": {
+       "audiences": [
+        "YOUR_OAUTH_CLIENT_ID"
+       ]
+      }
+     },
+     {
+      "google_id_token_https": {
+       "audiences": [
+        "YOUR_OAUTH_CLIENT_ID"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "/echo/v1/firebase_user": {
+   "get": {
+    "operationId": "EchoGetUserEmailFirebase",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Email"
+      }
+     }
+    },
+    "security": [
+     {
+      "firebase": [ ]
+     }
+    ],
+    "x-security": [
+     {
+      "firebase": {
+       "audiences": [
+        "YOUR-PROJECT-ID"
+       ]
+      }
+     }
+    ]
+   }
+  },
+  "/echo/v1/hi": {
+   "post": {
+    "operationId": "EchoHi",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Message"
+      }
+     }
+    }
+   }
+  }
+ },
+ "securityDefinitions": {
+  "api_key": {
+   "type": "apiKey",
+   "name": "key",
+   "in": "query"
+  },
+  "google_id_token_https": {
+   "type": "oauth2",
+   "authorizationUrl": "",
+   "flow": "implicit",
+   "x-issuer": "https://accounts.google.com",
+   "x-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs"
+  },
+  "google_id_token": {
+   "type": "oauth2",
+   "authorizationUrl": "",
+   "flow": "implicit",
+   "x-issuer": "accounts.google.com",
+   "x-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs"
+  }
+ },
+ "definitions": {
+  "Email": {
+   "properties": {
+    "email": {
+     "type": "string"
+    }
+   }
+  },
+  "Message": {
+   "properties": {
+    "message": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}
