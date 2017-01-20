@@ -49,7 +49,7 @@
         </init-param>
         <init-param>
             <param-name>endpoints.serviceName</param-name>
-            <param-value>echo-api.endpoints.rentping.demo.cloud.goog</param-value>
+            <param-value>echo-api.endpoints.rentping-demo.cloud.goog</param-value>
         </init-param>
     </filter>
 

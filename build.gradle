@@ -20,7 +20,7 @@ apply plugin: 'idea'
 
 appengine {  // App Engine tasks configuration
     run {
-        port = 8888
+        port = 8080
     }
 
     deploy {   // deploy configuration

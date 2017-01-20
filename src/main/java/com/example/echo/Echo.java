@@ -52,7 +52,7 @@ public class Echo {
    * Note that httpMethod is not specified. This will default to a reasonable HTTP method
    * depending on the API method name. In this case, the HTTP method will default to POST.
    */
-
+//./endpoints-framework-tools-2.0.0/bin/endpoints-framework-tools get-openapi-doc --hostname=rentping-demo.appspot.com --war=build/exploded-app/ com.example.echo.Echo
 
   @ApiMethod(name = "hi")
   public Message hi() {

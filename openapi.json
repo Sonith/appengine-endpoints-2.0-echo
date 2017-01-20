@@ -2,9 +2,9 @@
  "swagger": "2.0",
  "info": {
   "version": "1.0.0",
-  "title": "echo-api.endpoints.rentping-demo.cloud.goog"
+  "title": "rentping-demo.appspot.com"
  },
- "host": "echo-api.endpoints.rentping-demo.cloud.goog",
+ "host": "rentping-demo.appspot.com",
  "basePath": "/_ah/api",
  "schemes": [
   "https"
@@ -16,101 +16,6 @@
   "application/json"
  ],
  "paths": {
-  "/echo/v1/echo": {
-   "post": {
-    "operationId": "EchoEcho",
-    "parameters": [
-     {
-      "in": "body",
-      "name": "body",
-      "required": false,
-      "schema": {
-       "$ref": "#/definitions/Message"
-      }
-     },
-     {
-      "name": "n",
-      "in": "query",
-      "required": false,
-      "type": "integer",
-      "format": "int32"
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "A successful response",
-      "schema": {
-       "$ref": "#/definitions/Message"
-      }
-     }
-    }
-   }
-  },
-  "/echo/v1/echo/{n}": {
-   "post": {
-    "operationId": "EchoEchoPathParameter",
-    "parameters": [
-     {
-      "in": "body",
-      "name": "body",
-      "required": false,
-      "schema": {
-       "$ref": "#/definitions/Message"
-      }
-     },
-     {
-      "name": "n",
-      "in": "path",
-      "required": true,
-      "type": "integer",
-      "format": "int32"
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "A successful response",
-      "schema": {
-       "$ref": "#/definitions/Message"
-      }
-     }
-    }
-   }
-  },
-  "/echo/v1/echo_api_key": {
-   "post": {
-    "operationId": "EchoEchoApiKey",
-    "parameters": [
-     {
-      "in": "body",
-      "name": "body",
-      "required": false,
-      "schema": {
-       "$ref": "#/definitions/Message"
-      }
-     },
-     {
-      "name": "n",
-      "in": "query",
-      "required": false,
-      "type": "integer",
-      "format": "int32"
-     }
-    ],
-    "responses": {
-     "200": {
-      "description": "A successful response",
-      "schema": {
-       "$ref": "#/definitions/Message"
-      }
-     }
-    },
-    "security": [
-     {
-      "api_key": [ ]
-     }
-    ]
-   }
-  },
   "/echo/v1/email": {
    "get": {
     "operationId": "EchoGetUserEmail",
@@ -149,34 +54,6 @@
     ]
    }
   },
-  "/echo/v1/firebase_user": {
-   "get": {
-    "operationId": "EchoGetUserEmailFirebase",
-    "parameters": [ ],
-    "responses": {
-     "200": {
-      "description": "A successful response",
-      "schema": {
-       "$ref": "#/definitions/Email"
-      }
-     }
-    },
-    "security": [
-     {
-      "firebase": [ ]
-     }
-    ],
-    "x-security": [
-     {
-      "firebase": {
-       "audiences": [
-        "YOUR-PROJECT-ID"
-       ]
-      }
-     }
-    ]
-   }
-  },
   "/echo/v1/hi": {
    "post": {
     "operationId": "EchoHi",
@@ -193,11 +70,6 @@
   }
  },
  "securityDefinitions": {
-  "api_key": {
-   "type": "apiKey",
-   "name": "key",
-   "in": "query"
-  },
   "google_id_token_https": {
    "type": "oauth2",
    "authorizationUrl": "",
